@@ -17,14 +17,16 @@ class CreateClassesTable extends Migration
             $table->id();
             $table->year('year');
             $table->integer('dept_id');
-            $table->text('title');
+            $table->text('title_jp');
+            $table->text('title_en');
             $table->tinyInteger('credit');
             $table->string('eligible', 5);
+            $table->string('url', 50);
             // ここ大丈夫か再確認する
-            $table->string('category_jp', 50);
-            $table->string('category_en', 100);
+            $table->string('category_jp', 255);
+            $table->string('category_en', 255);
             // category ne
-            $table->integer('level_id');
+            // $table->integer('level_id');
             $table->integer('language_id');
             $table->integer('term_id');
             $table->integer('campus_id');

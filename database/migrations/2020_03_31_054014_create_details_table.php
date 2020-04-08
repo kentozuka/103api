@@ -16,9 +16,10 @@ class CreateDetailsTable extends Migration
         Schema::create('details', function (Blueprint $table) {
             $table->id();
             $table->integer('class_id');
-            $table->text('abstruct');
+            $table->text('subtitle');
+            $table->text('outline');
             $table->text('objective');
-            $table->text('goal');
+            // $table->text('goal');
             $table->text('beforeafter');
             $table->text('schedule');
             $table->text('textbook');

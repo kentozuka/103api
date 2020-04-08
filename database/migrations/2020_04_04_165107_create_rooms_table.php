@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGradingsTable extends Migration
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateGradingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gradings', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->integer('exam');
-            $table->integer('paper');
-            $table->integer('presentation');
-            $table->integer('attendance');
-            $table->integer('others');
-            $table->boolean('can_parse');
-            $table->text('raw');
+            $table->tinyInteger('campus_id');
+            $table->integer('building');
+            $table->string('room', 255);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateGradingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gradings');
+        Schema::dropIfExists('rooms');
     }
 }
