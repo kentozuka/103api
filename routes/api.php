@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::post('signin', 'SignInController');
     Route::post('signout', 'SignOutController');
-
+    Route::post('register', 'RegisterController');
     Route::get('me', 'MeController');
+});
+
+Route::middleware('auth:api', 'throttle:80,1')->group(function () {
+    Route::get('/class/{url}', 'ClassController@detail');
 });

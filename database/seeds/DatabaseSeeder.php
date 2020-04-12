@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $sql = base_path('database/seeds/base-information.sql');
-        // DB::unprepared(file_get_contents($sql));
+        $sql = base_path('database/seeds/base-information.sql');
+        DB::unprepared(file_get_contents($sql));
     }
 }
