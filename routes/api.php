@@ -23,8 +23,11 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::post('signout', 'SignOutController');
     Route::post('register', 'RegisterController');
     Route::get('me', 'MeController');
+    Route::get('refresh', 'RefreshController');
 });
 
 Route::middleware('auth:api', 'throttle:80,1')->group(function () {
-    Route::get('/class/{url}', 'ClassController@detail');
+    Route::get('/class/{url}', 'ClassController@index');
+    Route::get('/saved', 'ClassController@saved');
+    Route::post('/search', 'ClassController@search');
 });

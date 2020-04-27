@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jugyou extends Model
 {
+    public function posts()
+    {
+        return $this->hasMany('Post');
+    }
+
     protected $table = 'classes';
     
     public function dept() {
@@ -23,7 +28,15 @@ class Jugyou extends Model
     public function campus() {
         return $this->belongsTo('App\Campus');
     }
-    
+
+    public function profs() {
+        return $this->belongsToMany('App\Prof', 'class_profs', 'class_id');
+    }
+
+    public function rooms() {
+        return $this->belongsToMany('App\Room', 'class_rooms', 'class_id');
+    }
+
     public function class_cat() {
         return $this->hasMany('App\ClassCat', 'class_id');
     }
